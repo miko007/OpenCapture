@@ -42,6 +42,13 @@ if ( ! function_exists( 'sds_color_schemes' ) ) {
 				'preview' => '#3c639a',
 				'content_color' => '#333333',
 				'deps' => 'capture'
+			),
+			'gnu-green' => array(
+				'label' => __( 'GNU Green', 'capture' ),
+				'stylesheet' => '/css/gnu-green.css',
+				'preview' => 'lawngreen',
+				'content_color' => '#333333',
+				'deps' => 'capture'
 			)
 		);
 
@@ -165,53 +172,9 @@ if ( ! function_exists( 'sds_theme_options_ads' ) ) {
 	}
 }
 
-if ( ! function_exists( 'sds_theme_options_upgrade_cta' ) ) {
-	add_action( 'sds_theme_options_upgrade_cta', 'sds_theme_options_upgrade_cta' );
-
-	function sds_theme_options_upgrade_cta( $type ) {
-		switch( $type ) :
-			case 'color-schemes':
-		?>
-				<p>
-					<?php
-						printf( '<a href="%1$s" target="_blank">%2$s</a> %3$s',
-							esc_url( sds_get_pro_link( 'theme-options-colors' ) ),
-							__( 'Upgrade to Capture Pro', 'capture' ),
-							__( 'and receive more color schemes!', 'capture' )
-						);
-					?>
-				</p>
-		<?php
-			break;
-			case 'web-fonts':
-		?>
-				<p>
-					<?php
-						printf( '<a href="%1$s" target="_blank">%2$s</a> %3$s',
-							esc_url( sds_get_pro_link( 'theme-options-fonts' ) ),
-							__( 'Upgrade to Capture Pro', 'capture' ),
-							__( 'to use more web fonts!', 'capture' )
-						);
-					?>
-				</p>
-		<?php
-			break;
-			case 'help-support':
-		?>
-				<p>
-					<?php
-						printf( '<a href="%1$s" target="_blank">%2$s</a> %3$s',
-							esc_url( sds_get_pro_link( 'theme-options-help' ) ),
-							__( 'Upgrade to Capture Pro', 'capture' ),
-							__( 'to receive priority ticketing support!', 'capture' )
-						);
-					?>
-				</p>
-		<?php
-			break;
-		endswitch;
-	}
-}
+/**
+ * Here was some advertising function
+ */
 
 function sds_get_pro_link( $content ) {
 	return esc_url( 'https://slocumthemes.com/wordpress-themes/capture/?utm_source=capture&utm_medium=link&utm_content=' . urlencode( sanitize_title_with_dashes( $content ) ) . '&utm_campaign=pro#purchase-theme' );
@@ -221,9 +184,7 @@ if ( ! function_exists( 'sds_theme_options_help_support_tab_content' ) ) {
 	add_action( 'sds_theme_options_help_support_tab_content', 'sds_theme_options_help_support_tab_content' );
 
 	function sds_theme_options_help_support_tab_content( ) {
-	?>
-		<p><?php printf( __( 'If you\'d like to create a support request, please visit the %1$s.', 'capture' ), '<a href="http://wordpress.org/themes/capture/" target="_blank">Capture Forums on WordPress.org</a>' ); ?></p>
-	<?php
+		echo "<p>".__('If you need help with the OpenCapture Theme, visit our <a href="https://github.com/miko007/OpenCapture">GitHub</a> page.', 'capture')."</p>";
 	}
 }
 

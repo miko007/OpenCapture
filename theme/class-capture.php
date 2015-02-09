@@ -22,6 +22,8 @@ class Capture {
 	 * This function sets up all of the actions and filters on instance
 	 */
 	function __construct() {
+		add_action('init', array($this, 'textDomain'));
+
 		add_action( 'after_switch_theme', array( $this, 'after_switch_theme' ) ); // Flush rewrite rules on activation
 		add_action( 'after_setup_theme', array( $this, 'after_setup_theme' ), 20 ); // Register image sizes
 		add_action( 'widgets_init', array( $this, 'widgets_init' ), 20 ); // Unregister sidebars and alter Primary Sidebar output
@@ -62,6 +64,14 @@ class Capture {
 		add_action( 'woocommerce_after_single_product_summary', array( $this, 'woocommerce_after_single_product_summary' ), 20 ); // Add WooCommerce related products (3x3)
 	}
 
+	/**
+	 * adds localization ability
+	 *
+	 * @since 0.0.1
+	 */
+	public function textDomain() {
+		load_theme_textdomain('capture', get_template_directory() . '/languages');
+	}
 
 	/************************************************************************************
 	 *    Functions to correspond with actions above (attempting to keep same order)    *
@@ -108,8 +118,6 @@ class Capture {
 			'default-color' => '#ffffff'
 		) );
 
-		// Theme textdomain
-		load_theme_textdomain( 'capture', get_template_directory() . '/languages' );
 	}
 
 	/**
