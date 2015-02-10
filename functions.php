@@ -43,6 +43,9 @@ if ( ! function_exists( 'sds_color_schemes' ) ) {
 				'content_color' => '#333333',
 				'deps' => 'capture'
 			),
+			/**
+			 * @since 0.0.1
+			 */
 			'gnu-green' => array(
 				'label' => __( 'GNU Green', 'capture' ),
 				'stylesheet' => '/css/gnu-green.css',
@@ -69,6 +72,22 @@ if ( ! function_exists( 'sds_web_fonts' ) ) {
 			'Damion|Oswald|Lato:400' => array(
 				'label' => 'Lato',
 				'css' => 'font-family: \'Lato\', sans-serif;'
+			),
+			'Damion|Oswald|Ubuntu:400' => array(
+				'label' => 'Ubuntu',
+				'css' => "font-family: 'Ubuntu', sans-serif;"
+			),
+			'Damion|Oswald|Open Sans:400' => array(
+				'label' => 'Open Sans',
+				'css' => "font-family: 'Open Sans', sans-serif;"
+			),
+			'Damion|Oswald|Lora:400' => array(
+				'label' => 'Lora',
+				'css' => "font-family: 'Lora', serif;"
+			),
+			'Damion|Oswald|Lobster:400' => array(
+				'label' => 'Lobster',
+				'css' => "font-family: 'Lobster', cursive;"
 			)
 		);
 
